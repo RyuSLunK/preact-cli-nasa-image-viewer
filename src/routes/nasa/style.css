@@ -1,0 +1,13 @@
+.nasa {
+    margin-top: 5em;
+    padding: 1em;
+}
+.images {
+    column-count: 5;
+    line-height: 0;
+    column-gap: 0px;
+}
+.image {
+    width: 100% !important;
+    height: auto !important;
+}
