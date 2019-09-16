@@ -1,16 +1,16 @@
 import {
 	REQUEST_ITEMS,
-	RECEIVE_ITEMS, FAIL_ITEMS, SEARCH_CHANGED
-} from '../actions/nasa.js';
-  
+	RECEIVE_ITEMS, FAIL_ITEMS
+} from './types';
+
 const INITIAL_STATE = {
 	search: '',
 	loading: false,
 	data: null,
 	error: null
 };
-  
-const nasa = (state = INITIAL_STATE, action) => {
+
+const home = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case REQUEST_ITEMS:
 			return {
@@ -18,25 +18,22 @@ const nasa = (state = INITIAL_STATE, action) => {
 				error: null,
 				hits: 0
 			};
-		case RECEIVE_ITEMS:
-			return {
+		case RECEIVE_ITEMS: {
+			let result = {
 				loading: false,
-				data: action.payload,
 				error: null
 			};
+			result[action.payload.mediaType] = action.payload.data;
+			return result;
+		}
 		case FAIL_ITEMS:
 			return {
 				loading: false,
 				error: action.payload
 			};
-		case SEARCH_CHANGED:
-			return {
-				search: action.payload
-			};
 		default:
 			return state;
 	}
 };
-  
-export default nasa;
-  
+
+export default home;

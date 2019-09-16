@@ -1,11 +1,11 @@
 import { h } from 'preact';
 import style from './style';
 import store from '../../store';
-import nasa from '../../reducers/nasa';
+import nasa from '../../redux/nasa/reducer';
 import { connect } from 'preact-redux';
-import { makeGetHits, makeGetList } from '../../selectors/nasa';
-import { searchChanged } from '../../actions/nasa';
-import { List } from './list';
+import { makeGetHits, makeGetList } from '../../redux/nasa/selectors';
+import { searchChanged } from '../../redux/nasa/actions';
+import { List } from '../../components/list';
 
 store.addReducers({
 	nasa

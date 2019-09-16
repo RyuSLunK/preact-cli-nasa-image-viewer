@@ -1,3 +1,4 @@
+import { h } from 'preact';
 export const List = (props) => (
 	<div class="images">
 		{props.list.map(item => (

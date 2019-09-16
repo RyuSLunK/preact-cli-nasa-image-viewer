@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from '../actions/app.js';
+import { INCREMENT, DECREMENT } from './actions.js';
 
 const INITIAL_STATE = {
 	clicks: 0,

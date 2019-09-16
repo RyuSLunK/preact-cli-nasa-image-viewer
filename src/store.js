@@ -1,9 +1,9 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { lazyReducerEnhancer } from 'pwa-helpers/lazy-reducer-enhancer.js';
-const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-import app from './reducers/app';
-
+const devCompose = typeof window !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose : compose;
+import app from './redux/app/reducer';
+import home from './redux/home/reducer';
 export const store = createStore(
 	state => state,
 	devCompose(
@@ -12,7 +12,8 @@ export const store = createStore(
 );
 
 store.addReducers({
-	app
+	app,
+	home
 });
 
 export default store;
